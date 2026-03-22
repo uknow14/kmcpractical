@@ -1,0 +1,100 @@
+<!-- // JAVASACIPT -->
+
+<!-- 11.Write a program in JavaScript to get data using windows prompt and find the volume of a cuboid
+object. -->
+
+<html>
+<head>
+<title>Volume of Cuboid</title>
+<script>
+function findVolume() {
+    var l, b, h, vol;
+    l = parseFloat(prompt("Enter length:"));
+    b = parseFloat(prompt("Enter breadth:"));
+    h = parseFloat(prompt("Enter height:"));
+    vol = l * b * h;
+   alert("Volume of Cuboid = " + vol);
+}
+</script>
+</head>
+<body onload="findVolume()">
+</body>
+</html>
+
+<!-- ============================================================ -->
+
+
+<!-- 12.Write a program in JavaScript to illustrate onClick and onMouseOver event handling effect. -->
+
+<html>
+<head>
+<title>Event Handling</title>
+<script>
+function clickEffect() {
+    document.getElementById("msg").innerHTML = "You clicked the button!";
+}
+
+function hoverEffect() {
+    document.getElementById("msg").innerHTML = "Mouse is over the heading!";
+}
+</script>
+</head>
+<body>
+
+<h2 onmouseover="hoverEffect()">Hover Over Me</h2>
+<button onclick="clickEffect()">Click Me</button>
+<p id="msg"></p>
+
+</body>
+</html>
+<!-- ======================================================================================================= -->
+
+<!-- 
+13. Write a program in JavaScript to get id, name and mark from a form and do simple data validation. -->
+
+
+
+<html>
+<head>
+<title>Form Validation</title>
+<script>
+function validate() {
+    var id, name, mark;
+    id = document.f.id.value;
+    name = document.f.name.value;
+    mark = document.f.mark.value;
+
+    if (id == "") {
+        alert("ID cannot be empty!");
+        return false;
+    }
+    if (name == "") {
+        alert("Name cannot be empty!");
+        return false;
+    }
+    if (mark == "") {
+        alert("Mark cannot be empty!");
+        return false;
+    }
+    if (mark < 0 || mark > 100) {
+        alert("Mark must be between 0 and 100!");
+        return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+}
+</script>
+</head>
+<body>
+
+<h2>Student Form</h2>
+<form name="f" onsubmit="return validate()">
+    ID:   <input type="text" name="id"><br><br>
+    Name: <input type="text" name="name"><br><br>
+    Mark: <input type="text" name="mark"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

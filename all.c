@@ -150,29 +150,35 @@ int main() {
 
 #include <stdio.h>
 
-struct Car {
-    char name[50];
+struct car {
+    char name[20];
     float price;
 };
 
 int main() {
-    struct Car c[5];
-    int i, maxIndex = 0;
+    struct car c[5];
+    int i, max = 0;
 
-    for (i = 0; i < 5; i++) {
-        printf("Enter name of car %d: ", i + 1);
+
+    for(i = 0; i < 5; i++) {
+        printf("Enter name of car: ");
         scanf("%s", c[i].name);
+
         printf("Enter price: ");
         scanf("%f", &c[i].price);
     }
 
-    for (i = 1; i < 5; i++) {
-        if (c[i].price > c[maxIndex].price) {
-            maxIndex = i;
+   
+    for(i = 1; i < 5; i++) {
+        if(c[i].price > c[max].price) {
+            max = i;
         }
     }
 
-    printf("\nMost expensive car: %s (Rs. %.2f)\n", c[maxIndex].name, c[maxIndex].price);
+    // Output
+    printf("Most expensive car = %s\n", c[max].name);
+    printf("Price = %.2f\n", c[max].price);
+
     return 0;
 }
 // ===================================================

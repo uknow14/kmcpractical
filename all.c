@@ -407,3 +407,48 @@ int main() {
 
     return 0;
 }
+
+
+//reverse using base method 
+
+#include <stdio.h>
+
+int main() {
+    int n, rev = 0, r;
+
+    // Input
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    // Process
+    while(n > 0) {
+        r = n % 10;
+        rev = rev * 10 + r;
+        n = n / 10;
+    }
+
+    // Output
+    printf("Reverse = %d", rev);
+
+    return 0;
+}
+
+
+//odd even using base method
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    // Input
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    // Process + Output
+    if(n % 2 == 0)
+        printf("Even");
+    else
+        printf("Odd");
+
+    return 0;
+}

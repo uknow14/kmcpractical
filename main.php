@@ -100,3 +100,38 @@ mysqli_close($conn);
 
 </body>
 </html>
+
+
+
+<!-- LAST moment ko uestion haru -->
+
+<html>
+<body>
+
+<?php
+$conn = mysqli_connect("localhost","root","");
+
+// check connection
+if(!$conn) {
+    die("Connection failed");
+}
+
+// create database
+mysqli_query($conn,"CREATE DATABASE KMC");
+
+// select database
+mysqli_select_db($conn,"KMC");
+
+// create table
+mysqli_query($conn,"CREATE TABLE RESULT(
+id INT,
+name VARCHAR(50),
+mark INT
+)");
+
+echo "Table created successfully";
+
+?>
+
+</body>
+</html>

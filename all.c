@@ -53,6 +53,8 @@ int main() {
 
 // 3. Write a program to find a factorial of a number using a recursive function.
 
+
+
 #include <stdio.h>
 
 int factorial(int n) {
@@ -68,6 +70,74 @@ int main() {
     scanf("%d", &n);
     result = factorial(n);
     printf("Factorial of %d = %d\n", n, result);
+    return 0;
+}
+
+//using function 
+#include <stdio.h>
+
+int fact(int n) {
+    int i, f = 1;
+    for(i = 1; i <= n; i++)
+        f = f * i;
+    return f;
+}
+
+int main() {
+    int n, result;
+
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    result = fact(n);
+
+    printf("Factorial = %d", result);
+
+    return 0;
+}
+
+//factorial  using structure 
+#include <stdio.h>
+
+struct number {
+    int n;
+};
+
+int main() {
+    struct number num;
+    int i, f = 1;
+
+    printf("Enter number: ");
+    scanf("%d", &num.n);
+
+    for(i = 1; i <= num.n; i++)
+        f = f * i;
+
+    printf("Factorial = %d", f);
+
+    return 0;
+}
+
+//using union
+
+#include <stdio.h>
+
+union number {
+    int n;
+};
+
+int main() {
+    union number num;
+    int i, f = 1;
+
+    printf("Enter number: ");
+    scanf("%d", &num.n);
+
+    for(i = 1; i <= num.n; i++)
+        f = f * i;
+
+    printf("Factorial = %d", f);
+
     return 0;
 }
 // ================================================
@@ -248,5 +318,92 @@ int main() {
     }
 
     fclose(fp);
+    return 0;
+}
+
+
+
+//even odd using function 
+#include <stdio.h>
+
+int check(int n) {
+    if(n % 2 == 0)
+        return 1;
+    else
+        return 0;
+}
+
+int main() {
+    int n, result;
+
+    // Input
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    // Process
+    result = check(n);
+
+    // Output
+    if(result == 1)
+        printf("Even");
+    else
+        printf("Odd");
+
+    return 0;
+}
+
+//reverse of a number 
+// LOGIC below 
+
+// Take number
+// Extract last digit using %
+// Build reverse using rev = rev*10 + digit
+// #include <stdio.h>
+
+int main() {
+    int n, rev = 0, r;
+
+    // Input
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    // Process
+    while(n > 0) {
+        r = n % 10;
+        rev = rev * 10 + r;
+        n = n / 10;
+    }
+
+    // Output
+    printf("Reverse = %d", rev);
+
+    return 0;
+}
+
+//fibonacci series 
+// Logic
+// First two terms = 0, 1
+// Next term = sum of previous two
+// #include <stdio.h>
+
+int main() {
+    int n, i;
+    int a = 0, b = 1, c;
+
+    // Input
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    // Output first two terms
+    printf("%d %d ", a, b);
+
+    // Process
+    for(i = 3; i <= n; i++) {
+        c = a + b;
+        printf("%d ", c);
+        a = b;
+        b = c;
+    }
+
     return 0;
 }

